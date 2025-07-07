@@ -17,7 +17,7 @@ import { Twitter } from "lucide-react"; // Icon library
 // Define the shape of a single quote object
 interface Quote {
   quote: string;
-  author: string;
+  author: string | null;
 }
 
 export default function Home() {
@@ -54,9 +54,9 @@ export default function Home() {
 				<p className="text-lg md:text-xl font-medium">
         			“{quote.quote}”
       			</p>
-      			<p className="text-sm text-muted-foreground mt-4">
-        			- {quote.author}
-     			</p>
+      			{quote.author && (
+        <p className="text-sm text-muted-foreground mt-4">- {quote.author}</p>
+      )}
 				</>
 			) : (
 				<p>Loading quote...</p>
